@@ -7,6 +7,8 @@ declare module "styled-components" {
     black: string;
     white: string;
     green: string;
+    blueDark: string;
+    blueLight: string;
     red: string;
     typeScale: {
       header1: string;

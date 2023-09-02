@@ -3,8 +3,9 @@ import { DefaultTheme } from "styled-components";
 export const myTheme: DefaultTheme = {
   black: "#000000",
   white: "#ffffff",
-  blue: "#053BBC",
-  green: "#02CF60",
+  blueDark: "#0077b6",
+  blueLight: "#bde0fe",
+  green: "#A8DF8E",
   red: "#FF0000",
   typeScale: {
     header1: "1.625rem", // 26px

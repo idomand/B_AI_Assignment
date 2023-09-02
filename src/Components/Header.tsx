@@ -2,15 +2,13 @@ import { styled } from "styled-components";
 import { BasicButton } from "./Common/Buttons";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { changeStoreView } from "../Redux/appSlice";
-const HeaderWrapper = styled.header`
-  display: flex;
-  justify-content: center;
-`;
+import { Section } from "./Common/Container";
+
+const HeaderSection = styled(Section)``;
 
 export default function Header() {
   const dispatch = useAppDispatch();
   const storesData = useAppSelector((state) => state.dataSlice.storesData);
-  const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
 
   function changeStoreViewOnClick(storeId: 100790000 | 100790001 | 100790002) {
     const storePicked = storesData.find((store) => store.id_store == storeId);
@@ -20,7 +18,7 @@ export default function Header() {
   }
 
   return (
-    <HeaderWrapper>
+    <Section>
       <BasicButton
         onClick={() => {
           changeStoreViewOnClick(100790000);
@@ -42,6 +40,6 @@ export default function Header() {
       >
         Store Nine
       </BasicButton>
-    </HeaderWrapper>
+    </Section>
   );
 }

@@ -7,17 +7,18 @@ const ButtonPrototype = styled.button`
 `;
 
 export const BasicButton = styled(ButtonPrototype)`
-  background-color: ${({ theme }) => theme.blue};
+  background-color: ${({ theme }) => theme.blueDark};
   color: ${({ theme }) => theme.white};
-  border: 1.3px solid ${({ theme }) => theme.white};
+  border: 1px solid ${({ theme }) => theme.blueDark};
   border-radius: 6px;
   font-size: ${({ theme }) => theme.typeScale.text_normal};
-  font-weight: 500;
+  font-weight: 600;
   padding: 5px 10px;
+  margin: 4px 8px;
   &:hover,
   &:active {
-    background: ${({ theme }) => theme.white};
-    border: 1.3px solid ${({ theme }) => theme.blue};
-    color: ${({ theme }) => theme.blue};
+    background: ${({ theme }) => theme.blueLight};
+    /* border: 1px solid ${({ theme }) => theme.blueLight}; */
+    color: ${({ theme }) => theme.blueDark};
   }
 `;
