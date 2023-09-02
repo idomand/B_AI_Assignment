@@ -20,4 +20,11 @@ export const BasicButton = styled(ButtonPrototype)`
     background: ${({ theme }) => theme.white};
     color: ${({ theme }) => theme.blueDark};
   }
+  &:disabled,
+  &:disabled&:hover {
+    background-color: grey;
+    color: ${({ theme }) => theme.white};
+
+    cursor: not-allowed;
+  }
 `;

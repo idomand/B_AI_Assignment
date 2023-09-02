@@ -9,6 +9,7 @@ const HeaderSection = styled(Section)``;
 export default function Header() {
   const dispatch = useAppDispatch();
   const storesData = useAppSelector((state) => state.dataSlice.storesData);
+  const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
 
   function changeStoreViewOnClick(storeId: 100790000 | 100790001 | 100790002) {
     const storePicked = storesData.find((store) => store.id_store == storeId);
@@ -20,6 +21,7 @@ export default function Header() {
   return (
     <Section>
       <BasicButton
+        disabled={storeToShow.id_store == 100790000}
         onClick={() => {
           changeStoreViewOnClick(100790000);
         }}
@@ -27,6 +29,7 @@ export default function Header() {
         Store Three
       </BasicButton>
       <BasicButton
+        disabled={storeToShow.id_store == 100790001}
         onClick={() => {
           changeStoreViewOnClick(100790001);
         }}
@@ -34,6 +37,7 @@ export default function Header() {
         Store Six
       </BasicButton>
       <BasicButton
+        disabled={storeToShow.id_store == 100790002}
         onClick={() => {
           changeStoreViewOnClick(100790002);
         }}
