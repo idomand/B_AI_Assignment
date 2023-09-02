@@ -1,11 +1,16 @@
 import { styled } from "styled-components";
+import Header from "./Components/Header";
 
-const Div = styled.div`
+const Main = styled.main`
   border: solid red;
 `;
 
 function App() {
-  return <Div>hello world</Div>;
+  return (
+    <Main>
+      <Header />
+    </Main>
+  );
 }
 
 export default App;
