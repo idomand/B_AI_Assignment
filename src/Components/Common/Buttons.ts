@@ -12,13 +12,12 @@ export const BasicButton = styled(ButtonPrototype)`
   border: 1px solid ${({ theme }) => theme.blueDark};
   border-radius: 6px;
   font-size: ${({ theme }) => theme.typeScale.text_normal};
-  font-weight: 600;
+  font-weight: 500;
   padding: 5px 10px;
   margin: 4px 8px;
   &:hover,
   &:active {
-    background: ${({ theme }) => theme.blueLight};
-    /* border: 1px solid ${({ theme }) => theme.blueLight}; */
+    background: ${({ theme }) => theme.white};
     color: ${({ theme }) => theme.blueDark};
   }
 `;

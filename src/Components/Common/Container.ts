@@ -9,13 +9,13 @@ export const Section = styled.section`
 `;
 
 export const Div = styled.div`
+  min-width: 182px;
+  margin: 8px;
   background-color: white;
-  padding: 36px;
+  padding: 8px;
   border-radius: 4px;
   border: solid 0.5px ${({ theme }) => theme.black};
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 50%;
+  /* align-items: center; */
 `;
