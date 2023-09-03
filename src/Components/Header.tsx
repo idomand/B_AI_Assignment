@@ -1,10 +1,7 @@
-import { styled } from "styled-components";
 import { BasicButton } from "./Common/Buttons";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { changeStoreView } from "../Redux/appSlice";
 import { Section } from "./Common/Container";
-
-const HeaderSection = styled(Section)``;
 
 export default function Header() {
   const dispatch = useAppDispatch();

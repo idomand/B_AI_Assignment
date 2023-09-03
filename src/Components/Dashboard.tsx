@@ -2,7 +2,7 @@ import { Header2, Header3, TextLarge, TextNormal } from "./Common/Text";
 import { Div, Section } from "./Common/Container";
 import { styled } from "styled-components";
 import { useAppSelector } from "../Redux/ReduxHooks";
-import useGetFilteredData from "../Hooks/useGetDataByStore";
+import useGetDataByStore from "../Hooks/useGetDataByStore";
 
 const DashboardWrapper = styled(Section)`
   flex-direction: column;
@@ -16,6 +16,7 @@ const HeaderTextWrapper = styled.div`
 const ReportWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const StoreName = styled(Header3)`
@@ -25,11 +26,9 @@ const StoreName = styled(Header3)`
 export default function Dashboard() {
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
 
-  const { croissantData, breadData, pastryData, rollData } = useGetFilteredData(
-    {
-      store_id: storeToShow.id_store,
-    }
-  );
+  const { croissantData, breadData, pastryData, rollData } = useGetDataByStore({
+    store_id: storeToShow.id_store,
+  });
 
   return (
     <DashboardWrapper>
