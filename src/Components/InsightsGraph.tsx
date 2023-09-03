@@ -28,8 +28,9 @@ const SectionGraph = styled(Section)`
 
 const TextWrapper = styled.p`
   width: 50%;
-  display: flex;
-  justify-content: flex-end;
+  text-align: center;
+  margin: auto;
+  font-size: ${({ theme }) => theme.typeScale.text_normal};
 `;
 
 export default function InsightsGraph() {
