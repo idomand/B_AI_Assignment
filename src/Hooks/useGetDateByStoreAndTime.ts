@@ -1,21 +1,114 @@
-// import { useAppSelector } from "../Redux/ReduxHooks";
+import { useAppSelector } from "../Redux/ReduxHooks";
+import {
+  DeliveriesObjectType,
+  RecommendationsObjectType,
+  SalesObjectType,
+} from "../global";
 
-// type Props = {
-//   store_id: number;
-//   product_id: number;
-// };
+type Props = {
+  store_id: number;
+  product_id: number;
+};
 
-// export default function useGetDateByStoreAndTime({
-//   store_id,
-//   product_id,
-// }: Props) {
-//   const deliveriesData = useAppSelector(
-//     (state) => state.dataSlice.deliveriesData
-//   );
-//   const recommendationsData = useAppSelector(
-//     (state) => state.dataSlice.recommendationsData
-//   );
-//   const salesData = useAppSelector((state) => state.dataSlice.salesData);
+export default function useGetDateByStoreAndTime({
+  store_id,
+  product_id,
+}: Props) {
+  const deliveriesData = useAppSelector(
+    (state) => state.dataSlice.deliveriesData
+  );
+  const recommendationsData = useAppSelector(
+    (state) => state.dataSlice.recommendationsData
+  );
+  const salesData = useAppSelector((state) => state.dataSlice.salesData);
+  const arrayOfAllProductDelivered = deliveriesData.filter((recommendation) => {
+    recommendation.delivery_qty;
+    return (
+      recommendation.id_store == store_id &&
+      recommendation.id_product == product_id
+    );
+  });
+  const arrayOfAllProductRecommended = recommendationsData.filter(
+    (recommendation) => {
+      return (
+        recommendation.id_store == store_id &&
+        recommendation.id_product == product_id
+      );
+    }
+  );
 
-//   return null;
-// }
+  const arrayOfAllProductSales = salesData.filter((recommendation) => {
+    return (
+      recommendation.id_store == store_id &&
+      recommendation.id_product == product_id
+    );
+  });
+
+  type MergedData = {
+    target_date: string;
+    id_store: number;
+    id_product: number;
+    recommendation: number;
+    delivery_qty: number;
+    sales_qty: number;
+    demand_qty: number;
+  };
+
+  function mergeArrays(
+    array1: DeliveriesObjectType[],
+    array2: RecommendationsObjectType[],
+    array3: SalesObjectType[]
+  ): MergedData[] {
+    const map = new Map<string, MergedData>();
+
+    // Populate the map with data from array1
+    for (const item of array1) {
+      const key = `${item.target_date}_${item.id_store}_${item.id_product}`;
+      if (!map.has(key)) {
+        map.set(key, {
+          target_date: item.target_date,
+          id_store: item.id_store,
+          id_product: item.id_product,
+          recommendation: 0, // Initialize with 0 for later addition
+          sales_qty: 0, // Initialize with 0 for later addition
+          demand_qty: 0, // Initialize with 0 for later addition
+          delivery_qty: item.delivery_qty,
+        });
+      } else {
+        const existingItem = map.get(key)!;
+        existingItem.delivery_qty += item.delivery_qty;
+      }
+    }
+
+    // Merge data from array2 into the map
+    for (const item of array2) {
+      const key = `${item.target_date}_${item.id_store}_${item.id_product}`;
+      if (map.has(key)) {
+        const existingItem = map.get(key)!;
+        existingItem.recommendation = item.recommendation;
+      }
+    }
+    // Merge data from array3 into the map
+    for (const item of array3) {
+      const key = `${item.target_date}_${item.id_store}_${item.id_product}`;
+      if (map.has(key)) {
+        const existingItem = map.get(key)!;
+        existingItem.demand_qty = item.demand_qty;
+        existingItem.sales_qty = item.sales_qty;
+      }
+    }
+
+    // Convert the map values back to an array
+    const resultArray = [...map.values()];
+
+    return resultArray;
+  }
+
+  const NewDataArray = mergeArrays(
+    arrayOfAllProductDelivered,
+    arrayOfAllProductRecommended,
+    arrayOfAllProductSales
+  );
+
+  return NewDataArray;
+}

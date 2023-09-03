@@ -15,9 +15,7 @@ export default function useGetDataByProductAndStore({
   const recommendationsData = useAppSelector(
     (state) => state.dataSlice.recommendationsData
   );
-
   const salesData = useAppSelector((state) => state.dataSlice.salesData);
-
   const arrayOfAllProductRecommended = recommendationsData.filter(
     (recommendation) => {
       return (
@@ -26,8 +24,6 @@ export default function useGetDataByProductAndStore({
       );
     }
   );
-
-  console.log("arrayOfAllProductRecommended", arrayOfAllProductRecommended);
 
   const arrayOfAllProductDelivered = deliveriesData.filter((recommendation) => {
     recommendation.delivery_qty;
