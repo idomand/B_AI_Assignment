@@ -17,6 +17,10 @@ const CustomSelectDropdown = styled.select`
   border: 1px solid #ccc;
   border-radius: 4px;
   appearance: none;
+  cursor: pointer;
+`;
+const CustomSelectOption = styled.option`
+  cursor: pointer;
 `;
 
 type Props = {
@@ -42,9 +46,9 @@ export default function GraphSelect({ options, onChange }: Props) {
         onChange={handleSelectChange}
       >
         {options.map((option: ProductName) => (
-          <option key={option} value={option}>
+          <CustomSelectOption key={option} value={option}>
             {option}
-          </option>
+          </CustomSelectOption>
         ))}
       </CustomSelectDropdown>
     </CustomSelectWrapper>

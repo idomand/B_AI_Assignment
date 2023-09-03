@@ -36,7 +36,10 @@ export default function Dashboard() {
         <Header2>Dashboard</Header2>
       </HeaderTextWrapper>
       <ReportWrapper>
-        <StoreName>{storeToShow.store_label}:</StoreName>
+        <StoreName>
+          {storeToShow.store_label}: <br />
+          Full Data
+        </StoreName>
         <Div>
           <TextLarge>Croissant</TextLarge>
           <TextNormal>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
 import GraphSelect from "./GraphSelect";
@@ -12,6 +11,7 @@ import {
   YAxis,
   Tooltip,
   Legend,
+  Label,
 } from "recharts";
 import { styled } from "styled-components";
 import { changeGraphView } from "../Redux/appSlice";
@@ -19,6 +19,7 @@ import { ProductName } from "../global";
 
 const SectionGraph = styled(Section)`
   background-color: white;
+  flex-direction: column;
 `;
 
 export default function Graph() {
@@ -58,13 +59,16 @@ export default function Graph() {
         width={1030}
         height={250}
         data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 5, right: 30, left: 20, bottom: 10 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="target_date" />
+        <XAxis dataKey="target_date">
+          <Label value="date" offset={0} position="insideBottomRight" />
+        </XAxis>
         <YAxis />
+
         <Tooltip />
-        <Legend />
+        <Legend layout="vertical" />
         <Line type="monotone" dataKey="recommendation" stroke="#8884d8" />
         <Line type="monotone" dataKey="delivery_qty" stroke="#82ca9d" />
         <Line type="monotone" dataKey="demand_qty" stroke="#d44242" />

@@ -89,5 +89,15 @@ export default function useGetDateByStoreAndTime({
     arrayOfAllProductSales
   );
 
-  return NewDataArray;
+  const TestArray = NewDataArray.map((element) => {
+    const newDate = element.target_date.split("-");
+    newDate.reverse();
+    newDate.pop();
+    let foo = newDate.join("-");
+    console.log("foo", foo);
+    element.target_date = foo;
+    return element;
+  });
+  // console.log("TestArray", TestArray);
+  return TestArray;
 }
