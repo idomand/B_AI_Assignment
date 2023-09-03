@@ -5,7 +5,7 @@ type Props = {
   product_id: number;
 };
 
-export default function useGetDataByProductAndStore({
+export default function getFilteredDataByStoreAndProduct({
   store_id,
   product_id,
 }: Props) {
@@ -39,31 +39,9 @@ export default function useGetDataByProductAndStore({
     );
   });
 
-  const totalProductSales = arrayOfAllProductSales.reduce(
-    (accumulator, salesObject) => accumulator + salesObject.sales_qty,
-    0
-  );
-  const totalProductDemand = arrayOfAllProductSales.reduce(
-    (accumulator, salesObject) => accumulator + salesObject.demand_qty,
-    0
-  );
-
-  const totalProductDelivered = arrayOfAllProductDelivered.reduce(
-    (accumulator, deliveredObject) =>
-      accumulator + deliveredObject.delivery_qty,
-    0
-  );
-
-  const totalProductRecommended = arrayOfAllProductRecommended.reduce(
-    (accumulator, RecommendedObject) =>
-      accumulator + RecommendedObject.recommendation,
-    0
-  );
-
   return {
-    totalProductDelivered,
-    totalProductRecommended,
-    totalProductSales,
-    totalProductDemand,
+    arrayOfAllProductRecommended,
+    arrayOfAllProductDelivered,
+    arrayOfAllProductSales,
   };
 }

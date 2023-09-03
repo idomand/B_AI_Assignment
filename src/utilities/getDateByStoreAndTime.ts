@@ -1,9 +1,9 @@
-import { useAppSelector } from "../Redux/ReduxHooks";
 import {
   DeliveriesObjectType,
   RecommendationsObjectType,
   SalesObjectType,
 } from "../global";
+import getFilteredDataByStoreAndProduct from "./getFilteredDataByStoreAndProduct";
 
 type Props = {
   store_id: number;
@@ -14,34 +14,13 @@ export default function useGetDateByStoreAndTime({
   store_id,
   product_id,
 }: Props) {
-  const deliveriesData = useAppSelector(
-    (state) => state.dataSlice.deliveriesData
-  );
-  const recommendationsData = useAppSelector(
-    (state) => state.dataSlice.recommendationsData
-  );
-  const salesData = useAppSelector((state) => state.dataSlice.salesData);
-  const arrayOfAllProductDelivered = deliveriesData.filter((recommendation) => {
-    recommendation.delivery_qty;
-    return (
-      recommendation.id_store == store_id &&
-      recommendation.id_product == product_id
-    );
-  });
-  const arrayOfAllProductRecommended = recommendationsData.filter(
-    (recommendation) => {
-      return (
-        recommendation.id_store == store_id &&
-        recommendation.id_product == product_id
-      );
-    }
-  );
-
-  const arrayOfAllProductSales = salesData.filter((recommendation) => {
-    return (
-      recommendation.id_store == store_id &&
-      recommendation.id_product == product_id
-    );
+  const {
+    arrayOfAllProductDelivered,
+    arrayOfAllProductRecommended,
+    arrayOfAllProductSales,
+  } = getFilteredDataByStoreAndProduct({
+    product_id: product_id,
+    store_id: store_id,
   });
 
   type MergedData = {

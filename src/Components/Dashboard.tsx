@@ -2,7 +2,7 @@ import { Header2, Header3, TextLarge, TextNormal } from "./Common/Text";
 import { Div, Section } from "./Common/Container";
 import { styled } from "styled-components";
 import { useAppSelector } from "../Redux/ReduxHooks";
-import getDataByStore from "../lib/getDataByStore";
+import getDataByStore from "../utilities/getDataByStore";
 
 const DashboardWrapper = styled(Section)`
   flex-direction: column;

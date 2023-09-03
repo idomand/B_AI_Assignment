@@ -2,7 +2,7 @@ import { useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
 import { Header1 } from "./Common/Text";
 
-import getDateByStoreAndTime from "../lib/getDateByStoreAndTime";
+import getDateByStoreAndTime from "../utilities/getDateByStoreAndTime";
 
 import {
   LineChart,
@@ -23,7 +23,7 @@ const SectionGraph = styled(Section)`
 
 export default function Graph({}: Props) {
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
-  const NewDataArray = getDateByStoreAndTime({
+  const data = getDateByStoreAndTime({
     store_id: storeToShow.id_store,
     product_id: 100700034,
   });
@@ -34,7 +34,7 @@ export default function Graph({}: Props) {
       <LineChart
         width={1030}
         height={250}
-        data={NewDataArray}
+        data={data}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
