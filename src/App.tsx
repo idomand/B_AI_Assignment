@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import Header from "./Components/Header";
 import Dashboard from "./Components/Dashboard";
 import RawDataGraph from "./Components/RawDataGraph";
-import AdjustmentsGraph from "./Components/AdjustmentsGraph";
+import AdjustmentsGraph from "./Components/InsightsGraph";
 
 const Main = styled.main`
   border: solid black 1px;

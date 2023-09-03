@@ -1,6 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
+import { useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
-import GraphSelect from "./GraphSelect";
 import getDateByStoreAndTime from "../utilities/getRawDateByStoreAndTime";
 
 import {
@@ -14,20 +13,19 @@ import {
   Label,
 } from "recharts";
 import { styled } from "styled-components";
-import { changeGraphView } from "../Redux/appSlice";
-import { ProductName } from "../global";
 import { Header2 } from "./Common/Text";
 
 const SectionGraph = styled(Section)`
   background-color: white;
   flex-direction: column;
+  margin-top: 0;
+  width: 90%;
+  margin: 0 auto 5px;
+  border-radius: 8;
 `;
 
 export default function RawDataGraph() {
-  const dispatch = useAppDispatch();
-  const productsData = useAppSelector((state) => state.dataSlice.productsData);
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
-
   const productToShow = useAppSelector(
     (state) => state.dataSlice.productToShow
   );
@@ -37,32 +35,14 @@ export default function RawDataGraph() {
     product_id: productToShow.id_product,
   });
 
-  const options: ProductName[] = [
-    "Croissant",
-    "Black bread",
-    "Danish pastry",
-    "Grain roll",
-  ];
-
-  function changeGraphOnSelect(selectedOption: ProductName) {
-    const productPicked = productsData.find(
-      (product) => product.name_product == selectedOption
-    );
-    if (productPicked) {
-      dispatch(changeGraphView(productPicked));
-    }
-  }
-
   return (
     <SectionGraph>
       <Header2>Raw Data Per Product</Header2>
-
-      <GraphSelect options={options} onChange={changeGraphOnSelect} />
       <LineChart
         width={1030}
         height={250}
         data={data}
-        margin={{ top: 35, right: 70, left: 20, bottom: 10 }}
+        margin={{ top: 35, right: 70, left: 40, bottom: 10 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="target_date">

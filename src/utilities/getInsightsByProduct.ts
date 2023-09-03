@@ -10,10 +10,7 @@ type Props = {
   product_id: number;
 };
 
-export default function getRawDateByStoreAndTime({
-  store_id,
-  product_id,
-}: Props) {
+export default function getInsightsByProduct({ store_id, product_id }: Props) {
   const {
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,
@@ -90,5 +87,29 @@ export default function getRawDateByStoreAndTime({
     element.target_date = newDate;
     return element;
   });
-  return formattedMergedData;
+
+  type InsightArray = MergedData & {
+    variance: number;
+    IsBadRecommendation: boolean;
+  };
+
+  const newArray: InsightArray[] = formattedMergedData.map((element: any) => {
+    element.variance = Math.abs(element.recommendation - element.delivery_qty);
+
+    const diffToRecommendation = Math.abs(
+      element.demand_qty - element.recommendation
+    );
+    const diffToDeliveryQty = Math.abs(
+      element.demand_qty - element.delivery_qty
+    );
+    if (diffToRecommendation <= diffToDeliveryQty) {
+      element.IsBadRecommendation = false;
+    } else {
+      element.IsBadRecommendation = true;
+    }
+
+    return element;
+  });
+
+  return newArray;
 }

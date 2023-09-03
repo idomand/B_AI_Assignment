@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { ProductName } from "../global";
 import { Div } from "./Common/Container";
 
-// Define the styled components for the custom select
 const CustomSelectWrapper = styled(Div)`
-  /* position: relative; */
+  position: sticky;
+  top: 0;
+  z-index: 5;
   border: none;
   width: 200px;
 `;
