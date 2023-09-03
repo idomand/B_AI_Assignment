@@ -5,7 +5,7 @@ type Props = {
   product_id: number;
 };
 
-export default function getFilteredDataByStoreAndProduct({
+export default function useGetFilteredDataByStoreAndProduct({
   store_id,
   product_id,
 }: Props) {

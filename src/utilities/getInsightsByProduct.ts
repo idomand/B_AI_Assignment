@@ -3,7 +3,7 @@ import {
   RecommendationsObjectType,
   SalesObjectType,
 } from "../global";
-import getFilteredDataByStoreAndProduct from "./getFilteredDataByStoreAndProduct";
+import useGetFilteredDataByStoreAndProduct from "./useGetFilteredDataByStoreAndProduct";
 
 type Props = {
   store_id: number;
@@ -15,7 +15,7 @@ export default function getInsightsByProduct({ store_id, product_id }: Props) {
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,
     arrayOfAllProductSales,
-  } = getFilteredDataByStoreAndProduct({
+  } = useGetFilteredDataByStoreAndProduct({
     product_id: product_id,
     store_id: store_id,
   });
