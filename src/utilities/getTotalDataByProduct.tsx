@@ -1,15 +1,18 @@
-import getFilteredDataByStoreAndProduct from "./getFilteredDataByStoreAndProduct";
+import useGetFilteredDataByStoreAndProduct from "./useGetFilteredDataByStoreAndProduct";
 type Props = {
   store_id: number;
   product_id: number;
 };
 
-export default function getTotalDataByProduct({ store_id, product_id }: Props) {
+export default function useGetTotalDataByProduct({
+  store_id,
+  product_id,
+}: Props) {
   const {
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,
     arrayOfAllProductSales,
-  } = getFilteredDataByStoreAndProduct({
+  } = useGetFilteredDataByStoreAndProduct({
     product_id: product_id,
     store_id: store_id,
   });

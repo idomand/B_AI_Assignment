@@ -1,6 +1,6 @@
 import { useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
-import getDateByStoreAndTime from "../utilities/getRawDateByStoreAndTime";
+import GetRawDateByStoreAndTime from "../utilities/getRawDateByStoreAndTime";
 
 import {
   LineChart,
@@ -30,7 +30,7 @@ export default function RawDataGraph() {
     (state) => state.dataSlice.productToShow
   );
 
-  const data = getDateByStoreAndTime({
+  const data = GetRawDateByStoreAndTime({
     store_id: storeToShow.id_store,
     product_id: productToShow.id_product,
   });

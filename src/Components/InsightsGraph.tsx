@@ -69,8 +69,8 @@ export default function InsightsGraph() {
         <Header2>Insights Graph</Header2>
         <TextWrapper>
           The blue line represents the variance between the recommended quantity
-          and the delivered quantity, while the smiley faces indicate how
-          closely our recommendation aligns with the actual demand
+          and the delivered quantity, while the smiley faces indicate if our
+          recommendation was closer to actual demand then the delivery
         </TextWrapper>
       </div>
       <GraphSelect options={options} onChange={changeGraphOnSelect} />
@@ -96,8 +96,6 @@ export default function InsightsGraph() {
           stroke="#8884d8"
           dot={<CustomizedDot />}
         />
-        {/* <Line type="monotone" dataKey="delivery_qty" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="demand_qty" stroke="#d44242" /> */}
       </LineChart>
     </SectionGraph>
   );

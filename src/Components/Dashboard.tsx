@@ -2,7 +2,7 @@ import { Header2, Header3, TextLarge, TextNormal } from "./Common/Text";
 import { Div, Section } from "./Common/Container";
 import { styled } from "styled-components";
 import { useAppSelector } from "../Redux/ReduxHooks";
-import getDataByStore from "../utilities/getDataByStore";
+import useGetDataByStore from "../utilities/getDataByStore";
 
 const DashboardWrapper = styled(Section)`
   flex-direction: column;
@@ -27,7 +27,7 @@ const StoreName = styled(Header3)`
 export default function Dashboard() {
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
 
-  const { croissantData, breadData, pastryData, rollData } = getDataByStore({
+  const { croissantData, breadData, pastryData, rollData } = useGetDataByStore({
     store_id: storeToShow.id_store,
   });
 
