@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dataSlice from "./appSlice";
-// import firestoreApi from "./APISlice";
 
 const store = configureStore({
   reducer: { dataSlice },

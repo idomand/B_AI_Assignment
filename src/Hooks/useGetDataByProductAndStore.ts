@@ -5,16 +5,17 @@ type Props = {
   product_id: number;
 };
 
-export default function useGetDataByProduct({ store_id, product_id }: Props) {
+export default function useGetDataByProductAndStore({
+  store_id,
+  product_id,
+}: Props) {
   const deliveriesData = useAppSelector(
     (state) => state.dataSlice.deliveriesData
   );
   const recommendationsData = useAppSelector(
     (state) => state.dataSlice.recommendationsData
   );
-
   const salesData = useAppSelector((state) => state.dataSlice.salesData);
-
   const arrayOfAllProductRecommended = recommendationsData.filter(
     (recommendation) => {
       return (
@@ -23,6 +24,7 @@ export default function useGetDataByProduct({ store_id, product_id }: Props) {
       );
     }
   );
+
   const arrayOfAllProductDelivered = deliveriesData.filter((recommendation) => {
     recommendation.delivery_qty;
     return (

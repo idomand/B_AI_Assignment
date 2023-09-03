@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import Header from "./Components/Header";
 import Dashboard from "./Components/Dashboard";
+import Graph from "./Components/Graph";
 
 const Main = styled.main`
   border: solid black 1px;
@@ -13,6 +14,7 @@ function App() {
     <Main>
       <Header />
       <Dashboard />
+      <Graph />
     </Main>
   );
 }

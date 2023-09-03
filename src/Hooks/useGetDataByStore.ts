@@ -1,15 +1,15 @@
-import useGetDataByProduct from "./useGetDataByProduct";
+import useGetDataByProductAndStore from "./useGetDataByProductAndStore";
 type Props = {
   store_id: number;
 };
 
-export default function useGetFilteredData({ store_id }: Props) {
+export default function useGetDataByStore({ store_id }: Props) {
   const {
     totalProductRecommended: totalCroissantRecommended,
     totalProductDelivered: totalCroissantDelivered,
     totalProductDemand: totalCroissantDemand,
     totalProductSales: totalCroissantSales,
-  } = useGetDataByProduct({
+  } = useGetDataByProductAndStore({
     product_id: 100700034,
     store_id: store_id,
   });
@@ -19,7 +19,7 @@ export default function useGetFilteredData({ store_id }: Props) {
     totalProductDelivered: totalBreadDelivered,
     totalProductDemand: totalBreadDemand,
     totalProductSales: totalBreadSales,
-  } = useGetDataByProduct({
+  } = useGetDataByProductAndStore({
     product_id: 100700070,
     store_id: store_id,
   });
@@ -29,7 +29,7 @@ export default function useGetFilteredData({ store_id }: Props) {
     totalProductDelivered: totalPastryDelivered,
     totalProductDemand: totalPastryDemand,
     totalProductSales: totalPastrySales,
-  } = useGetDataByProduct({
+  } = useGetDataByProductAndStore({
     product_id: 100700080,
     store_id: store_id,
   });
@@ -39,7 +39,7 @@ export default function useGetFilteredData({ store_id }: Props) {
     totalProductDelivered: totalRollDelivered,
     totalProductDemand: totalRollDemand,
     totalProductSales: totalRollSales,
-  } = useGetDataByProduct({
+  } = useGetDataByProductAndStore({
     product_id: 100700091,
     store_id: store_id,
   });
