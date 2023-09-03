@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Header1 } from "./Common/Text";
 import { ProductName } from "../global";
 import { Div } from "./Common/Container";
 
@@ -39,8 +38,6 @@ export default function GraphSelect({ options, onChange }: Props) {
   };
   return (
     <CustomSelectWrapper>
-      <Header1>Product</Header1>
-
       <CustomSelectDropdown
         value={selectedOption}
         onChange={handleSelectChange}

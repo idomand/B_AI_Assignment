@@ -21,6 +21,7 @@ const ReportWrapper = styled.div`
 
 const StoreName = styled(Header3)`
   width: 180px;
+  text-align: start;
 `;
 
 export default function Dashboard() {
@@ -48,8 +49,8 @@ export default function Dashboard() {
           <TextNormal>
             Delivered: {croissantData.totalCroissantDelivered}
           </TextNormal>
-          <TextNormal>Sales: {croissantData.totalCroissantSales}</TextNormal>
           <TextNormal>Demand: {croissantData.totalCroissantDemand}</TextNormal>
+          <TextNormal>Sales: {croissantData.totalCroissantSales}</TextNormal>
         </Div>
         <Div>
           {" "}
@@ -58,8 +59,8 @@ export default function Dashboard() {
             Recommended: {breadData.totalBreadRecommended}
           </TextNormal>
           <TextNormal>Delivered: {breadData.totalBreadDelivered}</TextNormal>
-          <TextNormal>Sales: {breadData.totalBreadSales}</TextNormal>
           <TextNormal>Demand: {breadData.totalBreadDemand}</TextNormal>
+          <TextNormal>Sales: {breadData.totalBreadSales}</TextNormal>
         </Div>
         <Div>
           {" "}
@@ -68,16 +69,16 @@ export default function Dashboard() {
             Recommended: {pastryData.totalPastryRecommended}
           </TextNormal>
           <TextNormal>Delivered: {pastryData.totalPastryDelivered}</TextNormal>
-          <TextNormal>Sales: {pastryData.totalPastrySales}</TextNormal>
           <TextNormal>Demand: {pastryData.totalPastryDemand}</TextNormal>
+          <TextNormal>Sales: {pastryData.totalPastrySales}</TextNormal>
         </Div>
         <Div>
           {" "}
           <TextLarge>Roll</TextLarge>
           <TextNormal>Recommended: {rollData.totalRollRecommended}</TextNormal>
           <TextNormal>Delivered: {rollData.totalRollDelivered}</TextNormal>
-          <TextNormal>Sales: {rollData.totalRollSales}</TextNormal>
           <TextNormal>Demand: {rollData.totalRollDemand}</TextNormal>
+          <TextNormal>Sales: {rollData.totalRollSales}</TextNormal>
         </Div>
       </ReportWrapper>
     </DashboardWrapper>

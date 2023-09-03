@@ -33,7 +33,7 @@ export default function useGetDateByStoreAndTime({
     demand_qty: number;
   };
 
-  function mergeArrays(
+  function combineArrays(
     array1: DeliveriesObjectType[],
     array2: RecommendationsObjectType[],
     array3: SalesObjectType[]
@@ -76,28 +76,23 @@ export default function useGetDateByStoreAndTime({
         existingItem.sales_qty = item.sales_qty;
       }
     }
-
     // Convert the map values back to an array
     const resultArray = [...map.values()];
 
     return resultArray;
   }
 
-  const NewDataArray = mergeArrays(
+  const mergeData = combineArrays(
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,
     arrayOfAllProductSales
   );
 
-  const TestArray = NewDataArray.map((element) => {
-    const newDate = element.target_date.split("-");
-    newDate.reverse();
-    newDate.pop();
-    let foo = newDate.join("-");
-    console.log("foo", foo);
-    element.target_date = foo;
+  const formattedMergedData = mergeData.map((element) => {
+    const [, month, day] = element.target_date.split("-");
+    const newDate = `${day}-${month}`;
+    element.target_date = newDate;
     return element;
   });
-  // console.log("TestArray", TestArray);
-  return TestArray;
+  return formattedMergedData;
 }

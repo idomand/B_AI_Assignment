@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
 import Header from "./Components/Header";
 import Dashboard from "./Components/Dashboard";
-import Graph from "./Components/Graph";
+import RawDataGraph from "./Components/RawDataGraph";
+import AdjustmentsGraph from "./Components/AdjustmentsGraph";
 
 const Main = styled.main`
   border: solid black 1px;
   border-radius: 8px;
   background: #edf7ff;
+  align-self: flex-start;
+  position: relative;
 `;
 
 function App() {
@@ -14,7 +17,8 @@ function App() {
     <Main>
       <Header />
       <Dashboard />
-      <Graph />
+      <AdjustmentsGraph />
+      <RawDataGraph />
     </Main>
   );
 }

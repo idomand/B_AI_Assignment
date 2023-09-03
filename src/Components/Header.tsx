@@ -2,6 +2,18 @@ import { BasicButton } from "./Common/Buttons";
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { changeStoreView } from "../Redux/appSlice";
 import { Section } from "./Common/Container";
+import { styled } from "styled-components";
+
+const HeaderSection = styled(Section)`
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const HeaderButton = styled(BasicButton)`
+  width: 110px;
+`;
 
 export default function Header() {
   const dispatch = useAppDispatch();
@@ -16,31 +28,31 @@ export default function Header() {
   }
 
   return (
-    <Section>
-      <BasicButton
+    <HeaderSection>
+      <HeaderButton
         disabled={storeToShow.id_store == 100790000}
         onClick={() => {
           changeStoreViewOnClick(100790000);
         }}
       >
         Store Three
-      </BasicButton>
-      <BasicButton
+      </HeaderButton>
+      <HeaderButton
         disabled={storeToShow.id_store == 100790001}
         onClick={() => {
           changeStoreViewOnClick(100790001);
         }}
       >
         Store Six
-      </BasicButton>
-      <BasicButton
+      </HeaderButton>
+      <HeaderButton
         disabled={storeToShow.id_store == 100790002}
         onClick={() => {
           changeStoreViewOnClick(100790002);
         }}
       >
         Store Nine
-      </BasicButton>
-    </Section>
+      </HeaderButton>
+    </HeaderSection>
   );
 }

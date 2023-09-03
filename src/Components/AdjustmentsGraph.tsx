@@ -16,13 +16,14 @@ import {
 import { styled } from "styled-components";
 import { changeGraphView } from "../Redux/appSlice";
 import { ProductName } from "../global";
+import { Header2 } from "./Common/Text";
 
 const SectionGraph = styled(Section)`
   background-color: white;
   flex-direction: column;
 `;
 
-export default function Graph() {
+export default function AdjustmentsGraph() {
   const dispatch = useAppDispatch();
   const productsData = useAppSelector((state) => state.dataSlice.productsData);
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
@@ -54,18 +55,22 @@ export default function Graph() {
 
   return (
     <SectionGraph>
+      <Header2>Adjustments Graph</Header2>
+
       <GraphSelect options={options} onChange={changeGraphOnSelect} />
       <LineChart
         width={1030}
         height={250}
         data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 10 }}
+        margin={{ top: 35, right: 70, left: 20, bottom: 10 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="target_date">
-          <Label value="date" offset={0} position="insideBottomRight" />
+          <Label value="date" offset={-15} position="insideBottomRight" />
         </XAxis>
-        <YAxis />
+        <YAxis>
+          <Label value="quantity" offset={15} position="top" />
+        </YAxis>
 
         <Tooltip />
         <Legend layout="vertical" />
