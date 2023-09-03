@@ -10,7 +10,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   Label,
 } from "recharts";
 import { styled } from "styled-components";

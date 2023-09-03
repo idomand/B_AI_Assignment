@@ -20,6 +20,7 @@ Check out the live demo [here](https://main--deft-biscotti-d2c87a.netlify.app/).
 If I had more time, here are some improvements I would consider:
 
 - Add more unit and integration tests to ensure code reliability.
+- Remove the last "any" from third party code to improve reliability.
 - Implement React Server Components for enhanced server rendering and faster loading.
 - Utilize the "date-fns" library and the "getWeek" function for date filtering by weeks.
 - Make the design responsive to improve usability on various devices.
