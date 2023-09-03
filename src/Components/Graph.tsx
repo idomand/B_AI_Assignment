@@ -2,7 +2,7 @@ import { useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
 import { Header1 } from "./Common/Text";
 
-import useGetDateByStoreAndTime from "../Hooks/useGetDateByStoreAndTime";
+import getDateByStoreAndTime from "../lib/getDateByStoreAndTime";
 
 import {
   LineChart,
@@ -23,7 +23,7 @@ const SectionGraph = styled(Section)`
 
 export default function Graph({}: Props) {
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
-  const NewDataArray = useGetDateByStoreAndTime({
+  const NewDataArray = getDateByStoreAndTime({
     store_id: storeToShow.id_store,
     product_id: 100700034,
   });
