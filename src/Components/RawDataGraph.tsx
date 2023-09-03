@@ -21,7 +21,8 @@ const SectionGraph = styled(Section)`
   margin-top: 0;
   width: 90%;
   margin: 0 auto 5px;
-  border-radius: 8;
+  border-radius: 8px;
+  border: solid grey 0.1px;
 `;
 
 export default function RawDataGraph() {
@@ -46,10 +47,10 @@ export default function RawDataGraph() {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="target_date">
-          <Label value="date" offset={-15} position="insideBottomRight" />
+          <Label value="Date" offset={-15} position="insideBottomRight" />
         </XAxis>
         <YAxis>
-          <Label value="quantity" offset={15} position="top" />
+          <Label value="Quantity" offset={15} position="top" />
         </YAxis>
 
         <Tooltip />

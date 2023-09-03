@@ -99,20 +99,29 @@ export default function useGetInsightsByProduct({
   const newArray: InsightArray[] = formattedMergedData.map((element: any) => {
     element.variance = Math.abs(element.recommendation - element.delivery_qty);
 
-    const diffToRecommendation = Math.abs(
-      element.demand_qty - element.recommendation
+    element.IsBadRecommendation = checkIfRecommendationIsBad(
+      element.recommendation,
+      element.demand_qty,
+      element.delivery_qty
     );
-    const diffToDeliveryQty = Math.abs(
-      element.demand_qty - element.delivery_qty
-    );
-    if (diffToRecommendation <= diffToDeliveryQty) {
-      element.IsBadRecommendation = false;
-    } else {
-      element.IsBadRecommendation = true;
-    }
-
     return element;
   });
 
   return newArray;
+}
+
+export function checkIfRecommendationIsBad(
+  recommendation: number,
+  demand_qty: number,
+  delivery_qty: number
+) {
+  let IsBadRecommendation;
+  const diffToRecommendation = Math.abs(demand_qty - recommendation);
+  const diffToDeliveryQty = Math.abs(demand_qty - delivery_qty);
+  if (diffToRecommendation <= diffToDeliveryQty) {
+    IsBadRecommendation = false;
+  } else {
+    IsBadRecommendation = true;
+  }
+  return IsBadRecommendation;
 }
