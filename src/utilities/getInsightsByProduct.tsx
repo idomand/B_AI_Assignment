@@ -10,7 +10,10 @@ type Props = {
   product_id: number;
 };
 
-export default function getInsightsByProduct({ store_id, product_id }: Props) {
+export default function useGetInsightsByProduct({
+  store_id,
+  product_id,
+}: Props) {
   const {
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,

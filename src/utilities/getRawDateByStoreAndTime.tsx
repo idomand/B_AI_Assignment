@@ -10,7 +10,7 @@ type Props = {
   product_id: number;
 };
 
-export default function getRawDateByStoreAndTime({
+export default function useGetRawDateByStoreAndTime({
   store_id,
   product_id,
 }: Props) {

@@ -1,6 +1,6 @@
 import { useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
-import GetRawDateByStoreAndTime from "../utilities/GetRawDateByStoreAndTime";
+import GetRawDateByStoreAndTime from "../utilities/getRawDateByStoreAndTime";
 
 import {
   LineChart,

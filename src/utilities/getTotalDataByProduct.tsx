@@ -4,7 +4,10 @@ type Props = {
   product_id: number;
 };
 
-export default function getTotalDataByProduct({ store_id, product_id }: Props) {
+export default function useGetTotalDataByProduct({
+  store_id,
+  product_id,
+}: Props) {
   const {
     arrayOfAllProductDelivered,
     arrayOfAllProductRecommended,
