@@ -1,27 +1,25 @@
-# React + TypeScript + Vite
+# Reporting View - Software Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Screenshot](./src/images/Capture.PNG)
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo [here](https://main--deft-biscotti-d2c87a.netlify.app/).
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: For its component-based architecture.
+- **TypeScript**: For improved code quality and maintainability.
+- **Redux Toolkit**: Managed application state efficiently while allowing it to scale up in the future.
+- **Styled-Components**: For a dynamic theme and basic design system.
+- **Vite**: A fast build tool for development.
+- **Vitest**: Testing framework used for comprehensive testing of the application.
 
-- Configure the top-level `parserOptions` property like this:
+## Future Improvements
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+If I had more time, here are some improvements I would consider:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Add more unit and integration tests to ensure code reliability.
+- Implement React Server Components for enhanced server rendering and faster loading.
+- Utilize the "date-fns" library and the "getWeek" function for date filtering by weeks.
+- Make the design responsive to improve usability on various devices.
