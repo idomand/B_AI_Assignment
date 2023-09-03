@@ -54,7 +54,7 @@ export default function Dashboard() {
         </Div>
         <Div>
           {" "}
-          <TextLarge>Bread</TextLarge>
+          <TextLarge>Black bread</TextLarge>
           <TextNormal>
             Recommended: {breadData.totalBreadRecommended}
           </TextNormal>
@@ -64,7 +64,7 @@ export default function Dashboard() {
         </Div>
         <Div>
           {" "}
-          <TextLarge>Pastry</TextLarge>
+          <TextLarge>Danish pastry</TextLarge>
           <TextNormal>
             Recommended: {pastryData.totalPastryRecommended}
           </TextNormal>
@@ -74,7 +74,7 @@ export default function Dashboard() {
         </Div>
         <Div>
           {" "}
-          <TextLarge>Roll</TextLarge>
+          <TextLarge>Grain roll</TextLarge>
           <TextNormal>Recommended: {rollData.totalRollRecommended}</TextNormal>
           <TextNormal>Delivered: {rollData.totalRollDelivered}</TextNormal>
           <TextNormal>Demand: {rollData.totalRollDemand}</TextNormal>

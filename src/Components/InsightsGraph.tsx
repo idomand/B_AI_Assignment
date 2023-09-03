@@ -23,7 +23,8 @@ const SectionGraph = styled(Section)`
   flex-direction: column;
   width: 90%;
   margin: 16px auto 5px;
-  border-radius: 8;
+  border-radius: 8px;
+  border: solid grey 0.1px;
 `;
 
 const TextWrapper = styled.p`
@@ -78,18 +79,17 @@ export default function InsightsGraph() {
         width={1030}
         height={250}
         data={data}
-        margin={{ top: 35, right: 70, left: 40, bottom: 10 }}
+        margin={{ top: 35, right: 70, left: 40, bottom: 25 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="target_date">
-          <Label value="date" offset={-15} position="insideBottomRight" />
+          <Label value="Date" offset={-15} position="insideBottomRight" />
         </XAxis>
         <YAxis>
-          <Label value="Level of Variance" offset={10} position="top" />
+          <Label value="Difference" offset={10} position="top" />
         </YAxis>
 
         <Tooltip />
-        <Legend layout="vertical" />
         <Line
           type="monotone"
           dataKey="variance"
