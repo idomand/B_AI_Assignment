@@ -10,7 +10,7 @@ type Props = {
   product_id: number;
 };
 
-export default function useGetDateByStoreAndTime({
+export default function getRawDateByStoreAndTime({
   store_id,
   product_id,
 }: Props) {
@@ -87,6 +87,7 @@ export default function useGetDateByStoreAndTime({
     arrayOfAllProductRecommended,
     arrayOfAllProductSales
   );
+  console.log("mergeData", mergeData);
 
   const formattedMergedData = mergeData.map((element) => {
     const [, month, day] = element.target_date.split("-");

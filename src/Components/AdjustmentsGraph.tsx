@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
 import GraphSelect from "./GraphSelect";
-import getDateByStoreAndTime from "../utilities/getDateByStoreAndTime";
+import getDateByStoreAndTime from "../utilities/getRawDateByStoreAndTime";
 
 import {
   LineChart,

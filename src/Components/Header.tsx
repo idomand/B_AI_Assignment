@@ -9,6 +9,7 @@ const HeaderSection = styled(Section)`
   top: 0;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 5;
 `;
 
 const HeaderButton = styled(BasicButton)`

@@ -3,7 +3,7 @@ type Props = {
   store_id: number;
 };
 
-export default function useGetDataByStore({ store_id }: Props) {
+export default function getDataByStore({ store_id }: Props) {
   const {
     totalProductRecommended: totalCroissantRecommended,
     totalProductDelivered: totalCroissantDelivered,
