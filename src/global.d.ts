@@ -34,6 +34,12 @@ export type SalesObjectType = {
   demand_value: number;
 };
 
+export type ProductName =
+  | "Croissant"
+  | "Black bread"
+  | "Danish pastry"
+  | "Grain roll";
+
 export type GlobalStateType = {
   storesData: StoresObjectType[];
   deliveriesData: DeliveriesObjectType[];
@@ -41,4 +47,5 @@ export type GlobalStateType = {
   recommendationsData: RecommendationsObjectType[];
   salesData: SalesObjectType[];
   storeToShow: StoresObjectType;
+  productToShow: ProductsObjectType;
 };

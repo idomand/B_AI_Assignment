@@ -1,7 +1,7 @@
-import { useAppSelector } from "../Redux/ReduxHooks";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../Redux/ReduxHooks";
 import { Section } from "./Common/Container";
-import { Header1 } from "./Common/Text";
-
+import GraphSelect from "./GraphSelect";
 import getDateByStoreAndTime from "../utilities/getDateByStoreAndTime";
 
 import {
@@ -14,23 +14,46 @@ import {
   Legend,
 } from "recharts";
 import { styled } from "styled-components";
-
-type Props = {};
+import { changeGraphView } from "../Redux/appSlice";
+import { ProductName } from "../global";
 
 const SectionGraph = styled(Section)`
   background-color: white;
 `;
 
-export default function Graph({}: Props) {
+export default function Graph() {
+  const dispatch = useAppDispatch();
+  const productsData = useAppSelector((state) => state.dataSlice.productsData);
   const storeToShow = useAppSelector((state) => state.dataSlice.storeToShow);
+
+  const productToShow = useAppSelector(
+    (state) => state.dataSlice.productToShow
+  );
+
   const data = getDateByStoreAndTime({
     store_id: storeToShow.id_store,
-    product_id: 100700034,
+    product_id: productToShow.id_product,
   });
+
+  const options: ProductName[] = [
+    "Croissant",
+    "Black bread",
+    "Danish pastry",
+    "Grain roll",
+  ];
+
+  function changeGraphOnSelect(selectedOption: ProductName) {
+    const productPicked = productsData.find(
+      (product) => product.name_product == selectedOption
+    );
+    if (productPicked) {
+      dispatch(changeGraphView(productPicked));
+    }
+  }
 
   return (
     <SectionGraph>
-      <Header1>Graph</Header1>
+      <GraphSelect options={options} onChange={changeGraphOnSelect} />
       <LineChart
         width={1030}
         height={250}
